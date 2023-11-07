@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../../components/layouts/layout';
-import utilStyles from '../styles/utils.module.css';
+import Layout, { siteTitle } from '../../components/layouts';
+import styles from './index.module.scss';
 import Link from 'next/link';
 import { NextPage, GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
 
@@ -23,7 +23,13 @@ const Home: NextPage = () => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <div>test</div>
+      <div className={styles.root}>
+        <div className={styles.contents}>
+          <Link href="/question">
+            <button className={styles['start-button']}>診断を始める</button>
+          </Link>
+        </div>
+      </div>
     </Layout>
   );
 };

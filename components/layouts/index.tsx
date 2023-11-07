@@ -1,13 +1,15 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from './layout.module.css';
-import utilStyles from '../src/styles/utils.module.css';
+import styles from './index.module.scss';
 import Link from 'next/link';
 
-const name = 'Kamio';
-export const siteTitle = 'Next.js Sample Website';
+export const siteTitle = '性格診断';
 
-export default function Layout({ children, home }) {
+interface Props {
+  children: React.ReactNode;
+  home?: boolean;
+}
+
+export default function Layout({ children, home }: Props) {
   return (
     <div className={styles.container}>
       <Head>
@@ -26,7 +28,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        <div>header</div>
+        <div></div>
       </header>
       <main>{children}</main>
       {!home && (
