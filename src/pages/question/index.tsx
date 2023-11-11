@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../../../components/layouts';
+import React, { useState } from 'react';
 import styles from './index.module.scss';
 import Link from 'next/link';
 import _ from 'lodash';
@@ -46,6 +47,7 @@ type Props = {
 };
 
 const Question: NextPage = () => {
+  const [selectMap, setSelectMap] = useState({});
   return (
     <Layout home>
       <Head>
@@ -55,16 +57,41 @@ const Question: NextPage = () => {
         <div className={styles.contents}>
           {_.map(questions, (list, type) => {
             return (
-              <section>
+              <section key={type}>
                 <div>{type}</div>
                 {_.map(list, (item, index) => (
-                  <div className={styles.question}>
+                  <div key={`${type}-${index}`}  className={styles.question}>
                     <div>{item.text}</div>
                     <div>
                       <label>はい</label>
-                      <input type="radio" name={`${type}-${index}`} value="1" checked />
+                      <input
+                        type="radio"
+                        name={`${type}-${index}`}
+                        value="1"
+                        checked
+                        onChange={(e) => {
+                          setSelectMap((prevState) => (
+                            {
+                              ...prevState,
+                              [`${type}-${index}`]: e.target.value,
+                            }
+                          ));
+                        }}
+                      />
                       <label>いいえ</label>
-                      <input type="radio" name={`${type}-${index}`} value="2" />
+                      <input
+                        type="radio"
+                        name={`${type}-${index}`}
+                        value="2"
+                        onChange={(e) => {
+                          setSelectMap((prevState) => (
+                            {
+                              ...prevState,
+                              [`${type}-${index}`]: e.target.value,
+                            }
+                          ));
+                        }}
+                      />
                     </div>
                   </div>
                 ))}
