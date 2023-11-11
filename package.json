@@ -8,10 +8,14 @@
     "export": "next build && next export -o dist",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write --ignore-path .gitignore --ignore-unknown './**/*'"
+    "lint:fix": "eslint src --ext .js,jsx,.ts,.tsx --fix",
+    "format": "prettier --write --ignore-path .gitignore --ignore-unknown './**/*'",
+    "prepare": "husky install"
   },
   "dependencies": {
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "lint-staged": "^15.0.2",
     "lodash": "^4.17.21",
     "next": "13.5.4",
     "prettier": "^3.0.3",
@@ -27,8 +31,21 @@
     "autoprefixer": "^10",
     "eslint": "^8",
     "eslint-config-next": "13.5.4",
+    "husky": "^8.0.3",
     "postcss": "^8",
     "tailwindcss": "^3",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run lint:fix",
+      "npm run format",
+      "npm run lint"
+    ]
+  },
+  "lint-push": {
+    "*.{ts,tsx}": [
+      "npm run lint"
+    ]
   }
 }
