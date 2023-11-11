@@ -1,8 +1,8 @@
-import Head from 'next/head';
-import styles from './index.module.scss';
-import Link from 'next/link';
+import Head from "next/head";
+import styles from "./index.module.scss";
+import Link from "next/link";
 
-export const siteTitle = '性格診断';
+export const siteTitle = "性格診断";
 
 interface Props {
   children: React.ReactNode;

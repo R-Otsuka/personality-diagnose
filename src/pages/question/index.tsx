@@ -1,44 +1,49 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../../../components/layouts';
-import React, { useState } from 'react';
-import styles from './index.module.scss';
-import Link from 'next/link';
-import _ from 'lodash';
-import { NextPage, GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
+import Head from "next/head";
+import Layout, { siteTitle } from "../../../components/layouts";
+import React, { useState } from "react";
+import styles from "./index.module.scss";
+import Link from "next/link";
+import _ from "lodash";
+import {
+  NextPage,
+  GetStaticProps,
+  GetStaticPaths,
+  GetServerSideProps,
+} from "next";
 
 // static rendering
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      test: 'test',
+      test: "test",
     },
   };
 };
 
 const questions = {
   L1: [
-    { text: '質問1' },
-    { text: '質問2' },
-    { text: '質問3' },
-    { text: '質問4' },
+    { text: "質問1" },
+    { text: "質問2" },
+    { text: "質問3" },
+    { text: "質問4" },
   ],
   L2: [
-    { text: '質問5' },
-    { text: '質問6' },
-    { text: '質問7' },
-    { text: '質問8' },
+    { text: "質問5" },
+    { text: "質問6" },
+    { text: "質問7" },
+    { text: "質問8" },
   ],
   L3: [
-    { text: '質問9' },
-    { text: '質問10' },
-    { text: '質問11' },
-    { text: '質問12' },
+    { text: "質問9" },
+    { text: "質問10" },
+    { text: "質問11" },
+    { text: "質問12" },
   ],
   L4: [
-    { text: '質問13' },
-    { text: '質問14' },
-    { text: '質問15' },
-    { text: '質問16' },
+    { text: "質問13" },
+    { text: "質問14" },
+    { text: "質問15" },
+    { text: "質問16" },
   ],
 };
 
@@ -60,7 +65,7 @@ const Question: NextPage = () => {
               <section key={type}>
                 <div>{type}</div>
                 {_.map(list, (item, index) => (
-                  <div key={`${type}-${index}`}  className={styles.question}>
+                  <div key={`${type}-${index}`} className={styles.question}>
                     <div>{item.text}</div>
                     <div>
                       <label>はい</label>
@@ -70,12 +75,10 @@ const Question: NextPage = () => {
                         value="1"
                         checked
                         onChange={(e) => {
-                          setSelectMap((prevState) => (
-                            {
-                              ...prevState,
-                              [`${type}-${index}`]: e.target.value,
-                            }
-                          ));
+                          setSelectMap((prevState) => ({
+                            ...prevState,
+                            [`${type}-${index}`]: e.target.value,
+                          }));
                         }}
                       />
                       <label>いいえ</label>
@@ -84,12 +87,10 @@ const Question: NextPage = () => {
                         name={`${type}-${index}`}
                         value="2"
                         onChange={(e) => {
-                          setSelectMap((prevState) => (
-                            {
-                              ...prevState,
-                              [`${type}-${index}`]: e.target.value,
-                            }
-                          ));
+                          setSelectMap((prevState) => ({
+                            ...prevState,
+                            [`${type}-${index}`]: e.target.value,
+                          }));
                         }}
                       />
                     </div>
@@ -101,9 +102,9 @@ const Question: NextPage = () => {
         </div>
         <div>
           <button
-            className={styles['send-button']}
+            className={styles["send-button"]}
             onClick={() => {
-              alert('送信しました');
+              alert("送信しました");
             }}
           >
             送信

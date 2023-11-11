@@ -7,7 +7,8 @@
     "build": "next build",
     "export": "next build && next export -o dist",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write --ignore-path .gitignore --ignore-unknown './**/*'"
   },
   "dependencies": {
     "eslint-config-prettier": "^9.0.0",

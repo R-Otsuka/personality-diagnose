@@ -1,29 +1,16 @@
 {
-  "npm.packageManager": "yarn",
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  /*
-   * JavaScript
-   */
-  "[javascript]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  /*
-   * CSS/SCSS
-   */
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "scss.validate": false, // VSCodeデフォルトのリンターを無効化
   "css.validate": false, // VSCodeデフォルトのリンターを無効化
   "stylelint.validate": ["css", "scss"],
-  "[scss]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll": true
-    }
-  },
+  // "[scss]": {
+  //   "editor.codeActionsOnSave": {
+  //     "source.fixAll": true
+  //   }
+  // },
   "cSpell.words": [
     "clsx",
     "coreui",
@@ -33,6 +20,7 @@
     "toggl",
     "yoken",
     "yokens",
-    "yomis"
-  ],
+    "yomis",
+    "Parens"
+  ]
 }

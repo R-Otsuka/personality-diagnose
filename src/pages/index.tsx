@@ -1,14 +1,19 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../../components/layouts';
-import styles from './index.module.scss';
-import Link from 'next/link';
-import { NextPage, GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next';
+import Head from "next/head";
+import Layout, { siteTitle } from "../../components/layouts";
+import styles from "./index.module.scss";
+import Link from "next/link";
+import {
+  NextPage,
+  GetStaticProps,
+  GetStaticPaths,
+  GetServerSideProps,
+} from "next";
 
 // static rendering
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      test: 'test',
+      test: "test",
     },
   };
 };
@@ -26,7 +31,7 @@ const Home: NextPage = () => {
       <div className={styles.root}>
         <div className={styles.contents}>
           <Link href="/question">
-            <button className={styles['start-button']}>診断を始める</button>
+            <button className={styles["start-button"]}>診断を始める</button>
           </Link>
         </div>
       </div>
