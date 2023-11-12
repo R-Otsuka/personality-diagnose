@@ -2,12 +2,7 @@ import Head from "next/head";
 import Layout, { siteTitle } from "../../components/layouts";
 import styles from "./index.module.scss";
 import Link from "next/link";
-import {
-  NextPage,
-  GetStaticProps,
-  GetStaticPaths,
-  GetServerSideProps,
-} from "next";
+import { NextPage, GetStaticProps } from "next";
 
 // static rendering
 export const getStaticProps: GetStaticProps = async () => {
@@ -16,10 +11,6 @@ export const getStaticProps: GetStaticProps = async () => {
       test: "test",
     },
   };
-};
-
-type Props = {
-  test: string;
 };
 
 const Home: NextPage = () => {

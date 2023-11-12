@@ -1,14 +1,8 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../../../components/layouts";
 import styles from "./index.module.scss";
-import Link from "next/link";
 import _ from "lodash";
-import {
-  NextPage,
-  GetStaticProps,
-  GetStaticPaths,
-  GetServerSideProps,
-} from "next";
+import { NextPage, GetStaticProps } from "next";
 
 // static rendering
 export const getStaticProps: GetStaticProps = async () => {
@@ -44,10 +38,6 @@ const questions = {
     { text: "質問15" },
     { text: "質問16" },
   ],
-};
-
-type Props = {
-  test: string;
 };
 
 const Result: NextPage = () => {

@@ -2,14 +2,8 @@ import Head from "next/head";
 import Layout, { siteTitle } from "../../../components/layouts";
 import React, { useState } from "react";
 import styles from "./index.module.scss";
-import Link from "next/link";
 import _ from "lodash";
-import {
-  NextPage,
-  GetStaticProps,
-  GetStaticPaths,
-  GetServerSideProps,
-} from "next";
+import { NextPage, GetStaticProps } from "next";
 
 // static rendering
 export const getStaticProps: GetStaticProps = async () => {
@@ -47,12 +41,8 @@ const questions = {
   ],
 };
 
-type Props = {
-  test: string;
-};
-
 const Question: NextPage = () => {
-  const [selectMap, setSelectMap] = useState({});
+  const [, setSelectMap] = useState({});
   return (
     <Layout home>
       <Head>
